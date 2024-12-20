@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Informe</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    body {
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        margin-top: 50px;
+    }
+    h2 {
+        color: #007bff;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form-group label {
+        font-weight: bold;
+        color: #495057;
+    }
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .btn-secondary {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .form-control {
+        border-radius: 6px;
+        padding: 12px;
+    }
+</style>
+<body>
+    <div class="container mt-5 py-4 shadow-lg rounded">
+        <h2 class="text-center mb-4 text-primary">
+            <i class="fas fa-file-alt"></i> Generar Informe
+        </h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.titulo.label_tag }}
+                {{ form.titulo }}
+            </div>
+            <div class="form-group">
+                {{ form.descripcion.label_tag }}
+                {{ form.descripcion }}
+            </div>
+            <div class="form-group">
+                {{ form.observaciones.label_tag }}
+                {{ form.observaciones }}
+            </div>
+            <div class="form-group">
+                {{ form.destinatario.label_tag }}
+                {{ form.destinatario }}
+            </div>
+            <div class="form-group">
+                {{ form.copiar_a.label_tag }}
+                {{ form.copiar_a }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-paper-plane"></i> Generar y Enviar Informe
+            </button>
+        </form>
+        <a href="{% url 'libros' %}" class="btn btn-secondary mt-3 btn-block">
+            <i class="fas fa-arrow-left"></i> Volver a Libros
+        </a>
+    </div>
+</body>
+</html>

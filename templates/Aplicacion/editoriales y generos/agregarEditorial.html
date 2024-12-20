@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Editorial</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #343a40;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            height: 45px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+        .btn-primary-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .btn-primary-custom:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary-custom {
+            background-color: #6c757d;
+            color: white;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .btn-secondary-custom:hover {
+            background-color: #5a6268;
+        }
+        .text-center a {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Agregar Editorial</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-primary-custom">
+                    <i class="fas fa-save"></i> Guardar
+                </button>
+                <a href="{% url 'libros' %}" class="btn btn-secondary btn-secondary-custom">
+                    <i class="fas fa-arrow-left"></i> Volver a la lista
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</body>
+</html>
